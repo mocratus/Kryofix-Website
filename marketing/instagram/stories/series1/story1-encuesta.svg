@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1920" viewBox="0 0 1080 1920">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#E9F5FB"/>
+      <stop offset="100%" stop-color="#FFFFFF"/>
+    </linearGradient>
+    <style><![CDATA[
+      .brand { fill:#344449; font-family: 'Montserrat', 'Segoe UI', Roboto, Arial, sans-serif; }
+      .brand-strong { fill:#344449; font-weight:800; font-family: 'Montserrat', 'Segoe UI', Roboto, Arial, sans-serif; }
+      .blue { fill:#1478B4; }
+      .orange { fill:#FF6B2C; }
+      .muted { fill:#5A6A70; }
+      .h1 { font-size: 72px; line-height:1.15; font-weight:800; }
+      .h2 { font-size: 44px; font-weight:700; }
+      .small { font-size:28px; }
+      .btn { rx:24; ry:24; }
+    ]]></style>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1080" height="1920" fill="url(#bg)"/>
+
+  <!-- Header / Logo wordmark -->
+  <text x="1040" y="110" text-anchor="end" class="brand-strong" font-size="54">KRYOFIX</text>
+
+  <!-- Main prompt -->
+  <text x="540" y="640" text-anchor="middle" class="brand-strong h1">¿Tu aire enfría bien</text>
+  <text x="540" y="720" text-anchor="middle" class="brand-strong h1">este verano?</text>
+
+  <!-- Decorative cold/hot mark -->
+  <g transform="translate(540,430)">
+    <!-- blue half circle -->
+    <path d="M0,-90 A90,90 0 1,1 0,90" fill="#1478B4"/>
+    <!-- orange half circle -->
+    <path d="M0,90 A90,90 0 1,1 0,-90" fill="#FF6B2C"/>
+  </g>
+
+  <!-- Poll placeholders (visual only) -->
+  <rect x="240" y="1050" width="600" height="120" class="blue" opacity="0.12" stroke="#1478B4" stroke-width="4" class="btn" rx="24" ry="24"/>
+  <text x="540" y="1125" text-anchor="middle" class="brand" font-size="44">Sí, perfecto</text>
+
+  <rect x="240" y="1220" width="600" height="120" fill="rgba(255,107,44,0.12)" stroke="#FF6B2C" stroke-width="4" rx="24" ry="24"/>
+  <text x="540" y="1295" text-anchor="middle" class="brand" font-size="44">No, necesita ayuda</text>
+
+  <!-- Hint for IG poll sticker -->
+  <text x="540" y="1385" text-anchor="middle" class="muted small">Al publicar, añadí el sticker de Encuesta encima de las opciones</text>
+
+  <!-- Footer -->
+  <text x="540" y="1840" text-anchor="middle" class="muted small">C.A.B.A. y G.B.A. · @kryofix.ar · www.kryofix.com.ar</text>
+</svg>
+

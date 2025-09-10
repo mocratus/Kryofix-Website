@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1920" viewBox="0 0 1080 1920">
+  <defs>
+    <style><![CDATA[
+      .brand { fill:#344449; font-family: 'Montserrat', 'Segoe UI', Roboto, Arial, sans-serif; }
+      .brand-strong { fill:#344449; font-weight:800; font-family: 'Montserrat', 'Segoe UI', Roboto, Arial, sans-serif; }
+      .blueFill { fill:#E9F5FB; }
+      .blue { fill:#1478B4; }
+      .orange { fill:#FF6B2C; }
+      .muted { fill:#5A6A70; }
+      .h1 { font-size: 72px; font-weight:800; }
+      .h2 { font-size: 44px; font-weight:700; }
+      .small { font-size:28px; }
+    ]]></style>
+  </defs>
+
+  <!-- Background solid light blue -->
+  <rect width="1080" height="1920" fill="#E9F5FB"/>
+
+  <!-- Header / Logo -->
+  <text x="1040" y="110" text-anchor="end" class="brand-strong" font-size="54">KRYOFIX</text>
+
+  <!-- Title -->
+  <text x="540" y="420" text-anchor="middle" class="brand-strong h1">¡Genial! 🎉</text>
+
+  <!-- Bullets -->
+  <text x="220" y="620" class="brand h2">✅ Mantenimiento cada 6 meses</text>
+  <text x="220" y="720" class="brand h2">✅ Limpieza de filtros mensual</text>
+  <text x="220" y="820" class="brand h2">✅ Revisión antes del verano</text>
+
+  <!-- CTA Button (WhatsApp) -->
+  <rect x="260" y="1120" width="560" height="130" rx="26" ry="26" fill="#FF6B2C"/>
+  <text x="540" y="1205" text-anchor="middle" font-size="44" fill="#ffffff" font-family="Montserrat, 'Segoe UI', Roboto, Arial" font-weight="700">CONTACTAR POR WHATSAPP</text>
+
+  <!-- Link hint -->
+  <text x="540" y="1305" text-anchor="middle" class="muted small">Al publicar, agrega el sticker de Enlace → wa.me/5491151353079</text>
+
+  <!-- Footer -->
+  <text x="540" y="1840" text-anchor="middle" class="muted small">C.A.B.A. y G.B.A. · @kryofix.ar · www.kryofix.com.ar</text>
+</svg>
+

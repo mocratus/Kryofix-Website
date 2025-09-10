@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1920" viewBox="0 0 1080 1920">
+  <defs>
+    <linearGradient id="bg2" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#E9F5FB"/>
+      <stop offset="100%" stop-color="#FFFFFF"/>
+    </linearGradient>
+    <style><![CDATA[
+      .brand { fill:#344449; font-family: 'Montserrat', 'Segoe UI', Roboto, Arial, sans-serif; }
+      .brand-strong { fill:#344449; font-weight:800; font-family: 'Montserrat', 'Segoe UI', Roboto, Arial, sans-serif; }
+      .blue { fill:#1478B4; }
+      .muted { fill:#5A6A70; }
+      .h1 { font-size: 64px; font-weight:800; }
+      .h2 { font-size: 44px; font-weight:700; }
+      .small { font-size:28px; }
+    ]]></style>
+  </defs>
+
+  <!-- Background gradient -->
+  <rect width="1080" height="1920" fill="url(#bg2)"/>
+
+  <!-- Header / Logo -->
+  <text x="1040" y="110" text-anchor="end" class="brand-strong" font-size="54">KRYOFIX</text>
+
+  <!-- Title -->
+  <text x="540" y="420" text-anchor="middle" class="brand-strong h1">TIP DEL DÍA ❄️</text>
+
+  <!-- Content -->
+  <text x="540" y="600" text-anchor="middle" class="brand h2">La temperatura ideal es 24°C</text>
+  <text x="540" y="700" text-anchor="middle" class="brand h2">✅ Ahorra energía</text>
+  <text x="540" y="780" text-anchor="middle" class="brand h2">✅ Cuida tu salud</text>
+  <text x="540" y="860" text-anchor="middle" class="brand h2">✅ Prolonga la vida del equipo</text>
+
+  <!-- CTA Button -->
+  <rect x="320" y="1120" width="440" height="120" rx="24" ry="24" fill="#1478B4"/>
+  <text x="540" y="1195" text-anchor="middle" font-size="44" fill="#ffffff" font-family="Montserrat, 'Segoe UI', Roboto, Arial" font-weight="700">SEGUÍ NUESTROS TIPS</text>
+
+  <!-- Hashtags -->
+  <text x="540" y="1320" text-anchor="middle" class="muted small">#KryoFix #AireAcondicionado #Climatización</text>
+
+  <!-- Footer -->
+  <text x="540" y="1840" text-anchor="middle" class="muted small">C.A.B.A. y G.B.A. · @kryofix.ar · www.kryofix.com.ar</text>
+</svg>
+

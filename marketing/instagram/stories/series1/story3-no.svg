@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1920" viewBox="0 0 1080 1920">
+  <defs>
+    <style><![CDATA[
+      .brand { fill:#344449; font-family: 'Montserrat', 'Segoe UI', Roboto, Arial, sans-serif; }
+      .brand-strong { fill:#344449; font-weight:800; font-family: 'Montserrat', 'Segoe UI', Roboto, Arial, sans-serif; }
+      .blue { fill:#1478B4; }
+      .orange { fill:#FF6B2C; }
+      .muted { fill:#5A6A70; }
+      .h1 { font-size: 68px; font-weight:800; }
+      .h2 { font-size: 44px; font-weight:700; }
+      .small { font-size:28px; }
+    ]]></style>
+  </defs>
+
+  <!-- Background white with orange top band -->
+  <rect width="1080" height="1920" fill="#FFFFFF"/>
+  <rect x="0" y="0" width="1080" height="200" fill="#FF6B2C"/>
+
+  <!-- Header / Logo -->
+  <text x="1040" y="130" text-anchor="end" fill="#ffffff" font-family="Montserrat, 'Segoe UI', Roboto, Arial" font-weight="800" font-size="54">KRYOFIX</text>
+
+  <!-- Title -->
+  <text x="540" y="380" text-anchor="middle" class="brand-strong h1">¡Te ayudamos! 🔧</text>
+
+  <!-- List of issues -->
+  <text x="200" y="560" class="brand h2">🌡️ No enfría suficiente</text>
+  <text x="200" y="660" class="brand h2">🔊 Hace ruidos extraños</text>
+  <text x="200" y="760" class="brand h2">💧 Gotea agua</text>
+  <text x="200" y="860" class="brand h2">⚡ Consume mucha luz</text>
+
+  <!-- CTA Button WhatsApp style -->
+  <rect x="260" y="1120" width="560" height="130" rx="26" ry="26" fill="#25D366"/>
+  <text x="540" y="1205" text-anchor="middle" font-size="46" fill="#ffffff" font-family="Montserrat, 'Segoe UI', Roboto, Arial" font-weight="700">ESCRIBINOS POR WHATSAPP</text>
+
+  <!-- Secondary notes -->
+  <text x="540" y="1305" text-anchor="middle" class="muted small">Sticker Enlace → wa.me/5491151353079</text>
+  <text x="540" y="1360" text-anchor="middle" class="muted small">No atendemos urgencias</text>
+
+  <!-- Footer -->
+  <text x="540" y="1840" text-anchor="middle" class="muted small">C.A.B.A. y G.B.A. · @kryofix.ar · www.kryofix.com.ar</text>
+</svg>
+
