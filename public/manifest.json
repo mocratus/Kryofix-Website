@@ -1,0 +1,28 @@
+{
+  "name": "KryoFix - Balance Térmico",
+  "short_name": "KryoFix",
+  "description": "Calculadora profesional de balance térmico para técnicos en climatización",
+  "start_url": "/calculadora",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#0ea5e9",
+  "orientation": "portrait",
+  "scope": "/",
+  "icons": [
+    {
+      "src": "/icons/pwa-icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/icons/pwa-icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable any"
+    }
+  ],
+  "categories": ["productivity", "utilities", "business"],
+  "lang": "es-AR",
+  "dir": "ltr"
+}

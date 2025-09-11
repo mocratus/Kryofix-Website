@@ -1,4 +1,4 @@
-import BalanceTermico from '@/components/BalanceTermico';
+import CalculadoraClient from '@/components/CalculadoraClient';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 
@@ -18,7 +18,7 @@ export default function CalculadoraPage() {
             </p>
           </div>
 
-          <BalanceTermico />
+          <CalculadoraClient />
 
           <div className="mt-12 bg-blue-50 p-6 rounded-lg">
             <h2 className="text-2xl font-semibold text-blue-800 mb-4">
