@@ -475,10 +475,10 @@ const BalanceTermico = () => {
               </div>
 
               <div>
-                <label className="block text-sm font-medium mb-1">
+                <label className="block text-sm font-semibold mb-2 text-gray-700">
                   Paredes externas orientacion Sur (metros lineales):
                   <span
-                    className="ml-1 text-blue-500 cursor-help"
+                    className="ml-2 text-cyan-600 cursor-help hover:text-cyan-700 transition-colors"
                     title="Mida solo las paredes que dan al exterior hacia el Sur. Use cinta metrica para medir el largo total de estas paredes en metros."
                   >
                     ⓘ
@@ -496,10 +496,10 @@ const BalanceTermico = () => {
               </div>
 
               <div>
-                <label className="block text-sm font-medium mb-1">
+                <label className="block text-sm font-semibold mb-2 text-gray-700">
                   Paredes externas otras orientaciones (metros lineales):
                   <span
-                    className="ml-1 text-blue-500 cursor-help"
+                    className="ml-2 text-cyan-600 cursor-help hover:text-cyan-700 transition-colors"
                     title="Mida todas las paredes externas que NO dan al Sur (Norte, Este, Oeste, etc.). Sume todos los metros lineales."
                   >
                     ⓘ
@@ -517,10 +517,10 @@ const BalanceTermico = () => {
               </div>
 
               <div>
-                <label className="block text-sm font-medium mb-1">
+                <label className="block text-sm font-semibold mb-2 text-gray-700">
                   Paredes internas (metros lineales):
                   <span
-                    className="ml-1 text-blue-500 cursor-help"
+                    className="ml-2 text-cyan-600 cursor-help hover:text-cyan-700 transition-colors"
                     title="Solo paredes que separan el ambiente a climatizar de espacios SIN aire acondicionado (ej: cocina, bano, pasillo sin AC)."
                   >
                     ⓘ
