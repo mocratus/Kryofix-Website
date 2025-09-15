@@ -663,10 +663,10 @@ const BalanceTermico = () => {
               </div>
 
               <div>
-                <label className="block text-sm font-medium mb-1">
+                <label className="block text-sm font-semibold mb-2 text-gray-700">
                   Aberturas permanentes (metros de ancho):
                   <span
-                    className="ml-1 text-blue-500 cursor-help"
+                    className="ml-2 text-cyan-600 cursor-help hover:text-cyan-700 transition-colors"
                     title="Puertas o aberturas que permanecen abiertas hacia espacios sin aire acondicionado (ej: puerta a cocina que no se cierra)."
                   >
                     ⓘ
@@ -684,10 +684,10 @@ const BalanceTermico = () => {
               </div>
 
               <div className="sm:col-span-2 lg:col-span-1">
-                <label className="block text-sm font-medium mb-1">
+                <label className="block text-sm font-semibold mb-2 text-gray-700">
                   Factor de region:
                   <span
-                    className="ml-1 text-blue-500 cursor-help"
+                    className="ml-2 text-cyan-600 cursor-help hover:text-cyan-700 transition-colors"
                     title="Seleccione segun su ubicacion: Norte argentino (muy calurosa), Centro/Litoral (calurosa), Buenos Aires (templada), Patagonia norte (templada fria), Patagonia sur (fria)."
                   >
                     ⓘ
