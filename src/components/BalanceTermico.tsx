@@ -475,10 +475,10 @@ const BalanceTermico = () => {
               </div>
 
               <div>
-                <label className="block text-sm font-semibold mb-2 text-gray-700">
+                <label className="block text-sm font-medium mb-1">
                   Paredes externas orientacion Sur (metros lineales):
                   <span
-                    className="ml-2 text-cyan-600 cursor-help hover:text-cyan-700 transition-colors"
+                    className="ml-1 text-blue-500 cursor-help"
                     title="Mida solo las paredes que dan al exterior hacia el Sur. Use cinta metrica para medir el largo total de estas paredes en metros."
                   >
                     ⓘ
@@ -496,10 +496,10 @@ const BalanceTermico = () => {
               </div>
 
               <div>
-                <label className="block text-sm font-semibold mb-2 text-gray-700">
+                <label className="block text-sm font-medium mb-1">
                   Paredes externas otras orientaciones (metros lineales):
                   <span
-                    className="ml-2 text-cyan-600 cursor-help hover:text-cyan-700 transition-colors"
+                    className="ml-1 text-blue-500 cursor-help"
                     title="Mida todas las paredes externas que NO dan al Sur (Norte, Este, Oeste, etc.). Sume todos los metros lineales."
                   >
                     ⓘ
@@ -517,10 +517,10 @@ const BalanceTermico = () => {
               </div>
 
               <div>
-                <label className="block text-sm font-semibold mb-2 text-gray-700">
+                <label className="block text-sm font-medium mb-1">
                   Paredes internas (metros lineales):
                   <span
-                    className="ml-2 text-cyan-600 cursor-help hover:text-cyan-700 transition-colors"
+                    className="ml-1 text-blue-500 cursor-help"
                     title="Solo paredes que separan el ambiente a climatizar de espacios SIN aire acondicionado (ej: cocina, bano, pasillo sin AC)."
                   >
                     ⓘ
@@ -546,10 +546,10 @@ const BalanceTermico = () => {
           </h3>
             <div className="space-y-4">
               <div>
-                <label className="block text-sm font-semibold mb-2 text-gray-700">
+                <label className="block text-sm font-medium mb-1">
                   Area del techo (m²):
                   <span
-                    className="ml-2 text-cyan-600 cursor-help hover:text-cyan-700 transition-colors"
+                    className="ml-1 text-blue-500 cursor-help"
                     title="Mida largo x ancho del ambiente para obtener la superficie del techo en metros cuadrados (ej: 4m x 3m = 12m²)."
                   >
                     ⓘ
@@ -567,10 +567,10 @@ const BalanceTermico = () => {
               </div>
 
               <div>
-                <label className="block text-sm font-semibold mb-2 text-gray-700">
+                <label className="block text-sm font-medium mb-1">
                   Tipo de techo:
                   <span
-                    className="ml-2 text-cyan-600 cursor-help hover:text-cyan-700 transition-colors"
+                    className="ml-1 text-blue-500 cursor-help"
                     title="No aislado: chapa/teja directo. Con aislacion: tiene lana de vidrio/poliuretano. Cielorraso ocupado: hay piso arriba. Altillo: espacio vacio arriba."
                   >
                     ⓘ
@@ -600,10 +600,10 @@ const BalanceTermico = () => {
           </h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
               <div>
-                <label className="block text-sm font-semibold mb-2 text-gray-700">
+                <label className="block text-sm font-medium mb-1">
                   Area del piso (m²):
                   <span
-                    className="ml-2 text-cyan-600 cursor-help hover:text-cyan-700 transition-colors"
+                    className="ml-1 text-blue-500 cursor-help"
                     title="Solo si el piso NO esta sobre tierra (ej: departamento, primer piso sobre garage). Usar la misma medida que el techo."
                   >
                     ⓘ
@@ -621,10 +621,10 @@ const BalanceTermico = () => {
               </div>
 
               <div>
-                <label className="block text-sm font-semibold mb-2 text-gray-700">
+                <label className="block text-sm font-medium mb-1">
                   Numero de personas:
                   <span
-                    className="ml-2 text-cyan-600 cursor-help hover:text-cyan-700 transition-colors"
+                    className="ml-1 text-blue-500 cursor-help"
                     title="Cantidad de personas que habitualmente ocupan el ambiente al mismo tiempo (no la capacidad maxima, sino el uso normal)."
                   >
                     ⓘ
@@ -642,10 +642,10 @@ const BalanceTermico = () => {
               </div>
 
               <div>
-                <label className="block text-sm font-semibold mb-2 text-gray-700">
+                <label className="block text-sm font-medium mb-1">
                   Consumo electrico total (watts):
                   <span
-                    className="ml-2 text-cyan-600 cursor-help hover:text-cyan-700 transition-colors"
+                    className="ml-1 text-blue-500 cursor-help"
                     title="Sume la potencia de todas las luces, TV, computadoras, equipos que funcionen habitualmente en el ambiente. Vea las etiquetas de potencia."
                   >
                     ⓘ
@@ -663,10 +663,10 @@ const BalanceTermico = () => {
               </div>
 
               <div>
-                <label className="block text-sm font-semibold mb-2 text-gray-700">
+                <label className="block text-sm font-medium mb-1">
                   Aberturas permanentes (metros de ancho):
                   <span
-                    className="ml-2 text-cyan-600 cursor-help hover:text-cyan-700 transition-colors"
+                    className="ml-1 text-blue-500 cursor-help"
                     title="Puertas o aberturas que permanecen abiertas hacia espacios sin aire acondicionado (ej: puerta a cocina que no se cierra)."
                   >
                     ⓘ
@@ -684,10 +684,10 @@ const BalanceTermico = () => {
               </div>
 
               <div className="sm:col-span-2 lg:col-span-1">
-                <label className="block text-sm font-semibold mb-2 text-gray-700">
+                <label className="block text-sm font-medium mb-1">
                   Factor de region:
                   <span
-                    className="ml-2 text-cyan-600 cursor-help hover:text-cyan-700 transition-colors"
+                    className="ml-1 text-blue-500 cursor-help"
                     title="Seleccione segun su ubicacion: Norte argentino (muy calurosa), Centro/Litoral (calurosa), Buenos Aires (templada), Patagonia norte (templada fria), Patagonia sur (fria)."
                   >
                     ⓘ
