@@ -39,53 +39,55 @@ export default function CalculadoraPage() {
         </div>
 
         {/* Header principal simplificado */}
-        <div className="py-6 px-4">
-          <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
-            {/* Logo y título */}
-            <div className="flex items-center gap-4">
-              <Link href="/">
+        <div className="py-4 px-4">
+          <div className="max-w-7xl mx-auto">
+            {/* Fila superior: Logo y botones */}
+            <div className="flex items-center justify-between mb-3">
+              <Link href="/" className="flex-shrink-0">
                 <Image
                   src="/logo-kryofix.png"
                   alt="Logo KryoFix"
-                  width={120}
-                  height={48}
-                  className="h-12 w-auto object-contain hover:opacity-80 transition-opacity"
+                  width={140}
+                  height={56}
+                  className="h-14 w-auto object-contain hover:opacity-80 transition-opacity"
                 />
               </Link>
-              <div className="hidden md:block w-px h-12 bg-gray-300"></div>
-              <div className="text-center md:text-left">
-                <h1 className="text-2xl md:text-3xl font-bold text-gray-800">
-                  Calculadora de Balance Térmico
-                </h1>
-                <p className="text-sm text-gray-600 mt-1">
-                  Herramienta profesional según normas CACAAV
-                </p>
+
+              {/* Botones compactos */}
+              <div className="flex gap-2">
+                <a
+                  href="https://wa.me/5491151353079?text=¡Hola!%20Me%20interesa%20conocer%20más%20sobre%20los%20servicios%20de%20KryoFix.%20¿Podrían%20ayudarme?"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-1 bg-green-600 text-white px-3 py-1.5 rounded-md text-xs font-semibold hover:bg-green-700 transition-colors"
+                >
+                  <Image
+                    src="https://img.icons8.com/ios-filled/12/ffffff/whatsapp.png"
+                    alt="WhatsApp"
+                    width={12}
+                    height={12}
+                    className="h-3 w-3 object-contain"
+                  />
+                  <span className="hidden sm:inline">WhatsApp</span>
+                </a>
+                <Link
+                  href="/contacto"
+                  className="bg-cyan-600 text-white px-3 py-1.5 rounded-md text-xs font-semibold hover:bg-cyan-700 transition-colors"
+                >
+                  <span className="hidden sm:inline">Solicitar Servicio</span>
+                  <span className="sm:hidden">Contacto</span>
+                </Link>
               </div>
             </div>
 
-            {/* Botones de acción */}
-            <div className="flex flex-col sm:flex-row gap-3">
-              <a
-                href="https://wa.me/5491151353079?text=¡Hola!%20Me%20interesa%20conocer%20más%20sobre%20los%20servicios%20de%20KryoFix.%20¿Podrían%20ayudarme?"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 bg-green-600 text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-green-700 transition-colors"
-              >
-                <Image
-                  src="https://img.icons8.com/ios-filled/16/ffffff/whatsapp.png"
-                  alt="WhatsApp"
-                  width={16}
-                  height={16}
-                  className="h-4 w-4 object-contain"
-                />
-                <span>WhatsApp</span>
-              </a>
-              <Link
-                href="/contacto"
-                className="bg-cyan-600 text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-cyan-700 transition-colors text-center"
-              >
-                Solicitar Servicio
-              </Link>
+            {/* Fila inferior: Título centrado */}
+            <div className="text-center border-t border-gray-200 pt-3">
+              <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-800 mb-1">
+                Calculadora de Balance Térmico
+              </h1>
+              <p className="text-xs sm:text-sm text-gray-600">
+                Herramienta profesional según normas CACAAV
+              </p>
             </div>
           </div>
         </div>
