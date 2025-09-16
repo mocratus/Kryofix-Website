@@ -369,11 +369,12 @@ const BalanceTermico = () => {
               <div>
                 <label className="block text-sm font-semibold mb-2 text-gray-700">
                   Tipo de sombra:
-                  <Tooltip content="Sin sombra: ventana recibe sol directo. Sombra interior: tiene cortinas, persianas o films. Sombra exterior: tiene alero, toldo o esta bajo balcon.">
-                    <span className="ml-2 text-cyan-600 cursor-help hover:text-cyan-700 transition-colors">
-                      ⓘ
-                    </span>
-                  </Tooltip>
+                  <span
+                    className="ml-2 text-cyan-600 cursor-pointer hover:text-cyan-700 transition-colors"
+                    onClick={() => mostrarAyuda('Sin sombra: ventana recibe sol directo. Sombra interior: tiene cortinas, persianas o films. Sombra exterior: tiene alero, toldo o esta bajo balcon.')}
+                  >
+                    ⓘ
+                  </span>
                 </label>
                 <select
                   value={datos.ventanaSombra}
@@ -390,8 +391,8 @@ const BalanceTermico = () => {
                 <label className="block text-sm font-semibold mb-2 text-gray-700">
                   Tipo de vidrio:
                   <span
-                    className="ml-2 text-cyan-600 cursor-help hover:text-cyan-700 transition-colors"
-                    title="Vidrio simple: una sola lamina de vidrio. Vidrio doble: doble vidriado hermetico (DVH). Ladrillo de vidrio: bloques de vidrio translucidos."
+                    className="ml-2 text-cyan-600 cursor-pointer hover:text-cyan-700 transition-colors"
+                    onClick={() => mostrarAyuda('Vidrio simple: una sola lamina de vidrio. Vidrio doble: doble vidriado hermetico (DVH). Ladrillo de vidrio: bloques de vidrio translucidos.')}
                   >
                     ⓘ
                   </span>
@@ -419,8 +420,8 @@ const BalanceTermico = () => {
                 <label className="block text-sm font-semibold mb-2 text-gray-700">
                   Area de ventanas (m²):
                   <span
-                    className="ml-2 text-cyan-600 cursor-help hover:text-cyan-700 transition-colors"
-                    title="Puede usar la misma medida que en radiacion solar si son las mismas ventanas, o medir por separado si considera ventanas diferentes."
+                    className="ml-2 text-cyan-600 cursor-pointer hover:text-cyan-700 transition-colors"
+                    onClick={() => mostrarAyuda('Puede usar la misma medida que en radiacion solar si son las mismas ventanas, o medir por separado si considera ventanas diferentes.')}
                   >
                     ⓘ
                   </span>
@@ -440,8 +441,8 @@ const BalanceTermico = () => {
                 <label className="block text-sm font-semibold mb-2 text-gray-700">
                   Tipo de vidrio:
                   <span
-                    className="ml-2 text-cyan-600 cursor-help hover:text-cyan-700 transition-colors"
-                    title="Mismo criterio que en radiacion solar. El tipo de vidrio afecta la transmision de calor por conduccion."
+                    className="ml-2 text-cyan-600 cursor-pointer hover:text-cyan-700 transition-colors"
+                    onClick={() => mostrarAyuda('Mismo criterio que en radiacion solar. El tipo de vidrio afecta la transmision de calor por conduccion.')}
                   >
                     ⓘ
                   </span>
@@ -472,8 +473,8 @@ const BalanceTermico = () => {
                 <label className="block text-sm font-semibold mb-2 text-gray-700">
                   Tipo de construccion:
                   <span
-                    className="ml-2 text-cyan-600 cursor-help hover:text-cyan-700 transition-colors"
-                    title="Liviana: paredes de ladrillo hueco, steel frame, madera. Pesada: ladrillo macizo, hormigon, piedra. Afecta la inercia termica."
+                    className="ml-2 text-cyan-600 cursor-pointer hover:text-cyan-700 transition-colors"
+                    onClick={() => mostrarAyuda('Liviana: paredes de ladrillo hueco, steel frame, madera. Pesada: ladrillo macizo, hormigon, piedra. Afecta la inercia termica.')}
                   >
                     ⓘ
                   </span>
@@ -492,8 +493,8 @@ const BalanceTermico = () => {
                 <label className="block text-sm font-semibold mb-2 text-gray-700">
                   Paredes externas orientacion Sur (metros lineales):
                   <span
-                    className="ml-2 text-cyan-600 cursor-help hover:text-cyan-700 transition-colors"
-                    title="Mida solo las paredes que dan al exterior hacia el Sur. Use cinta metrica para medir el largo total de estas paredes en metros."
+                    className="ml-2 text-cyan-600 cursor-pointer hover:text-cyan-700 transition-colors"
+                    onClick={() => mostrarAyuda('Mida solo las paredes que dan al exterior hacia el Sur. Use cinta metrica para medir el largo total de estas paredes en metros.')}
                   >
                     ⓘ
                   </span>
@@ -513,8 +514,8 @@ const BalanceTermico = () => {
                 <label className="block text-sm font-semibold mb-2 text-gray-700">
                   Paredes externas otras orientaciones (metros lineales):
                   <span
-                    className="ml-2 text-cyan-600 cursor-help hover:text-cyan-700 transition-colors"
-                    title="Mida todas las paredes externas que NO dan al Sur (Norte, Este, Oeste, etc.). Sume todos los metros lineales."
+                    className="ml-2 text-cyan-600 cursor-pointer hover:text-cyan-700 transition-colors"
+                    onClick={() => mostrarAyuda('Mida todas las paredes externas que NO dan al Sur (Norte, Este, Oeste, etc.). Sume todos los metros lineales.')}
                   >
                     ⓘ
                   </span>
@@ -534,8 +535,8 @@ const BalanceTermico = () => {
                 <label className="block text-sm font-semibold mb-2 text-gray-700">
                   Paredes internas (metros lineales):
                   <span
-                    className="ml-2 text-cyan-600 cursor-help hover:text-cyan-700 transition-colors"
-                    title="Solo paredes que separan el ambiente a climatizar de espacios SIN aire acondicionado (ej: cocina, bano, pasillo sin AC)."
+                    className="ml-2 text-cyan-600 cursor-pointer hover:text-cyan-700 transition-colors"
+                    onClick={() => mostrarAyuda('Solo paredes que separan el ambiente a climatizar de espacios SIN aire acondicionado (ej: cocina, bano, pasillo sin AC).')}
                   >
                     ⓘ
                   </span>
@@ -563,8 +564,8 @@ const BalanceTermico = () => {
                 <label className="block text-sm font-semibold mb-2 text-gray-700">
                   Area del techo (m²):
                   <span
-                    className="ml-2 text-cyan-600 cursor-help hover:text-cyan-700 transition-colors"
-                    title="Mida largo x ancho del ambiente para obtener la superficie del techo en metros cuadrados (ej: 4m x 3m = 12m²)."
+                    className="ml-2 text-cyan-600 cursor-pointer hover:text-cyan-700 transition-colors"
+                    onClick={() => mostrarAyuda('Mida largo x ancho del ambiente para obtener la superficie del techo en metros cuadrados (ej: 4m x 3m = 12m²).')}
                   >
                     ⓘ
                   </span>
@@ -584,8 +585,8 @@ const BalanceTermico = () => {
                 <label className="block text-sm font-semibold mb-2 text-gray-700">
                   Tipo de techo:
                   <span
-                    className="ml-2 text-cyan-600 cursor-help hover:text-cyan-700 transition-colors"
-                    title="No aislado: chapa/teja directo. Con aislacion: tiene lana de vidrio/poliuretano. Cielorraso ocupado: hay piso arriba. Altillo: espacio vacio arriba."
+                    className="ml-2 text-cyan-600 cursor-pointer hover:text-cyan-700 transition-colors"
+                    onClick={() => mostrarAyuda('No aislado: chapa/teja directo. Con aislacion: tiene lana de vidrio/poliuretano. Cielorraso ocupado: hay piso arriba. Altillo: espacio vacio arriba.')}
                   >
                     ⓘ
                   </span>
@@ -617,8 +618,8 @@ const BalanceTermico = () => {
                 <label className="block text-sm font-semibold mb-2 text-gray-700">
                   Area del piso (m²):
                   <span
-                    className="ml-2 text-cyan-600 cursor-help hover:text-cyan-700 transition-colors"
-                    title="Solo si el piso NO esta sobre tierra (ej: departamento, primer piso sobre garage). Usar la misma medida que el techo."
+                    className="ml-2 text-cyan-600 cursor-pointer hover:text-cyan-700 transition-colors"
+                    onClick={() => mostrarAyuda('Solo si el piso NO esta sobre tierra (ej: departamento, primer piso sobre garage). Usar la misma medida que el techo.')}
                   >
                     ⓘ
                   </span>
@@ -638,8 +639,8 @@ const BalanceTermico = () => {
                 <label className="block text-sm font-semibold mb-2 text-gray-700">
                   Numero de personas:
                   <span
-                    className="ml-2 text-cyan-600 cursor-help hover:text-cyan-700 transition-colors"
-                    title="Cantidad de personas que habitualmente ocupan el ambiente al mismo tiempo (no la capacidad maxima, sino el uso normal)."
+                    className="ml-2 text-cyan-600 cursor-pointer hover:text-cyan-700 transition-colors"
+                    onClick={() => mostrarAyuda('Cantidad de personas que habitualmente ocupan el ambiente al mismo tiempo (no la capacidad maxima, sino el uso normal).')}
                   >
                     ⓘ
                   </span>
@@ -659,8 +660,8 @@ const BalanceTermico = () => {
                 <label className="block text-sm font-semibold mb-2 text-gray-700">
                   Consumo electrico total (watts):
                   <span
-                    className="ml-2 text-cyan-600 cursor-help hover:text-cyan-700 transition-colors"
-                    title="Sume la potencia de todas las luces, TV, computadoras, equipos que funcionen habitualmente en el ambiente. Vea las etiquetas de potencia."
+                    className="ml-2 text-cyan-600 cursor-pointer hover:text-cyan-700 transition-colors"
+                    onClick={() => mostrarAyuda('Sume la potencia de todas las luces, TV, computadoras, equipos que funcionen habitualmente en el ambiente. Vea las etiquetas de potencia.')}
                   >
                     ⓘ
                   </span>
@@ -680,8 +681,8 @@ const BalanceTermico = () => {
                 <label className="block text-sm font-semibold mb-2 text-gray-700">
                   Aberturas permanentes (metros de ancho):
                   <span
-                    className="ml-2 text-cyan-600 cursor-help hover:text-cyan-700 transition-colors"
-                    title="Puertas o aberturas que permanecen abiertas hacia espacios sin aire acondicionado (ej: puerta a cocina que no se cierra)."
+                    className="ml-2 text-cyan-600 cursor-pointer hover:text-cyan-700 transition-colors"
+                    onClick={() => mostrarAyuda('Puertas o aberturas que permanecen abiertas hacia espacios sin aire acondicionado (ej: puerta a cocina que no se cierra).')}
                   >
                     ⓘ
                   </span>
@@ -701,8 +702,8 @@ const BalanceTermico = () => {
                 <label className="block text-sm font-semibold mb-2 text-gray-700">
                   Factor de region:
                   <span
-                    className="ml-2 text-cyan-600 cursor-help hover:text-cyan-700 transition-colors"
-                    title="Seleccione segun su ubicacion: Norte argentino (muy calurosa), Centro/Litoral (calurosa), Buenos Aires (templada), Patagonia norte (templada fria), Patagonia sur (fria)."
+                    className="ml-2 text-cyan-600 cursor-pointer hover:text-cyan-700 transition-colors"
+                    onClick={() => mostrarAyuda('Seleccione segun su ubicacion: Norte argentino (muy calurosa), Centro/Litoral (calurosa), Buenos Aires (templada), Patagonia norte (templada fria), Patagonia sur (fria).')}
                   >
                     ⓘ
                   </span>
