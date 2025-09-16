@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useRef, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 
 interface TooltipProps {
   content: string;
@@ -9,26 +9,24 @@ interface TooltipProps {
   className?: string;
 }
 
-export default function Tooltip({ 
-  content, 
-  children, 
+export default function Tooltip({
+  content,
+  children,
   position = 'top',
-  className = '' 
+  className = ''
 }: TooltipProps) {
   const [isVisible, setIsVisible] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
-  const tooltipRef = useRef<HTMLDivElement>(null);
-  const triggerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     // Detectar si es dispositivo móvil
     const checkMobile = () => {
       setIsMobile(window.innerWidth <= 768 || 'ontouchstart' in window);
     };
-    
+
     checkMobile();
     window.addEventListener('resize', checkMobile);
-    
+
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
@@ -40,125 +38,94 @@ export default function Tooltip({
     setIsVisible(false);
   };
 
-  const handleClick = (e: React.MouseEvent | React.TouchEvent) => {
+  const handleClick = (e: React.MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
+    console.log('Tooltip clicked!', { isMobile, isVisible }); // Debug
     setIsVisible(!isVisible);
   };
 
-  const handleTouchStart = (e: React.TouchEvent) => {
-    e.preventDefault();
-    e.stopPropagation();
-    setIsVisible(!isVisible);
-  };
-
-  // Cerrar tooltip al hacer click fuera
+  // Cerrar tooltip al hacer click fuera (solo en móvil)
   useEffect(() => {
-    if (!isVisible) return;
+    if (!isMobile || !isVisible) return;
 
-    const handleClickOutside = (event: MouseEvent | TouchEvent) => {
-      if (
-        tooltipRef.current &&
-        triggerRef.current &&
-        !tooltipRef.current.contains(event.target as Node) &&
-        !triggerRef.current.contains(event.target as Node)
-      ) {
+    const handleClickOutside = (event: Event) => {
+      const target = event.target as HTMLElement;
+      if (target && !target.closest('.tooltip-container')) {
         setIsVisible(false);
       }
     };
 
-    document.addEventListener('mousedown', handleClickOutside);
-    document.addEventListener('touchstart', handleClickOutside);
+    // Usar un pequeño delay para evitar que se cierre inmediatamente
+    const timer = setTimeout(() => {
+      document.addEventListener('click', handleClickOutside);
+      document.addEventListener('touchend', handleClickOutside);
+    }, 100);
 
     return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-      document.removeEventListener('touchstart', handleClickOutside);
+      clearTimeout(timer);
+      document.removeEventListener('click', handleClickOutside);
+      document.removeEventListener('touchend', handleClickOutside);
     };
-  }, [isVisible]);
+  }, [isVisible, isMobile]);
 
-  const getPositionClasses = () => {
-    const baseClasses = isMobile
-      ? 'absolute z-50 px-4 py-3 text-sm text-white bg-gray-900 rounded-lg shadow-xl max-w-sm border border-gray-700'
-      : 'absolute z-50 px-3 py-2 text-sm text-white bg-gray-900 rounded-lg shadow-lg max-w-xs';
+  // Renderizar tooltip como modal en móvil, normal en desktop
+  const renderTooltip = () => {
+    if (!isVisible) return null;
 
-    // En móvil, siempre mostrar arriba para mejor visibilidad
     if (isMobile) {
-      return `${baseClasses} bottom-full left-1/2 transform -translate-x-1/2 mb-3`;
+      // Modal simple para móvil
+      return (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 p-4">
+          <div className="bg-white rounded-lg p-4 max-w-sm mx-4 shadow-xl">
+            <p className="text-gray-800 text-sm leading-relaxed">{content}</p>
+            <button
+              onClick={() => setIsVisible(false)}
+              className="mt-3 px-4 py-2 bg-cyan-600 text-white rounded text-sm hover:bg-cyan-700 transition-colors"
+            >
+              Entendido
+            </button>
+          </div>
+        </div>
+      );
     }
 
-    switch (position) {
-      case 'top':
-        return `${baseClasses} bottom-full left-1/2 transform -translate-x-1/2 mb-2`;
-      case 'bottom':
-        return `${baseClasses} top-full left-1/2 transform -translate-x-1/2 mt-2`;
-      case 'left':
-        return `${baseClasses} right-full top-1/2 transform -translate-y-1/2 mr-2`;
-      case 'right':
-        return `${baseClasses} left-full top-1/2 transform -translate-y-1/2 ml-2`;
-      default:
-        return `${baseClasses} bottom-full left-1/2 transform -translate-x-1/2 mb-2`;
-    }
-  };
+    // Tooltip normal para desktop
+    const baseClasses = 'absolute z-50 px-3 py-2 text-sm text-white bg-gray-900 rounded-lg shadow-lg max-w-xs';
+    const positionClass = position === 'top'
+      ? 'bottom-full left-1/2 transform -translate-x-1/2 mb-2'
+      : 'top-full left-1/2 transform -translate-x-1/2 mt-2';
 
-  const getArrowClasses = () => {
-    const baseArrow = 'absolute w-2 h-2 bg-gray-900 transform rotate-45';
-
-    // En móvil, siempre flecha hacia abajo (tooltip arriba)
-    if (isMobile) {
-      return `${baseArrow} top-full left-1/2 transform -translate-x-1/2 -translate-y-1/2`;
-    }
-
-    switch (position) {
-      case 'top':
-        return `${baseArrow} top-full left-1/2 transform -translate-x-1/2 -translate-y-1/2`;
-      case 'bottom':
-        return `${baseArrow} bottom-full left-1/2 transform -translate-x-1/2 translate-y-1/2`;
-      case 'left':
-        return `${baseArrow} left-full top-1/2 transform -translate-y-1/2 -translate-x-1/2`;
-      case 'right':
-        return `${baseArrow} right-full top-1/2 transform -translate-y-1/2 translate-x-1/2`;
-      default:
-        return `${baseArrow} top-full left-1/2 transform -translate-x-1/2 -translate-y-1/2`;
-    }
+    return (
+      <div className={`${baseClasses} ${positionClass}`}>
+        {content}
+        <div className="absolute w-2 h-2 bg-gray-900 transform rotate-45 top-full left-1/2 transform -translate-x-1/2 -translate-y-1/2"></div>
+      </div>
+    );
   };
 
   return (
-    <div className={`relative inline-block ${className}`}>
-      <div
-        ref={triggerRef}
-        onMouseEnter={!isMobile ? showTooltip : undefined}
-        onMouseLeave={!isMobile ? hideTooltip : undefined}
-        onClick={handleClick}
-        onTouchStart={handleTouchStart}
-        className="cursor-help touch-manipulation"
-        style={{
-          WebkitTouchCallout: 'none',
-          WebkitUserSelect: 'none',
-          userSelect: 'none'
-        }}
-      >
-        {children}
-      </div>
-      
-      {isVisible && (
+    <>
+      <div className={`tooltip-container relative inline-block ${className}`}>
         <div
-          ref={tooltipRef}
-          className={getPositionClasses()}
+          onMouseEnter={!isMobile ? showTooltip : undefined}
+          onMouseLeave={!isMobile ? hideTooltip : undefined}
+          onClick={handleClick}
+          className="cursor-help select-none"
           style={{
-            animation: 'fadeIn 0.2s ease-in-out',
+            WebkitTapHighlightColor: 'transparent',
+            touchAction: 'manipulation'
           }}
         >
-          {content}
-          <div className={getArrowClasses()}></div>
+          {children}
         </div>
-      )}
-      
-      <style jsx>{`
-        @keyframes fadeIn {
-          from { opacity: 0; transform: translateY(4px); }
-          to { opacity: 1; transform: translateY(0); }
-        }
-      `}</style>
-    </div>
+
+        {/* Tooltip para desktop */}
+        {!isMobile && renderTooltip()}
+      </div>
+
+      {/* Modal para móvil */}
+      {isMobile && renderTooltip()}
+    </>
   );
 }
