@@ -308,11 +308,12 @@ const BalanceTermico = () => {
               <div>
                 <label className="block text-sm font-semibold mb-2 text-gray-700">
                   Orientacion:
-                  <Tooltip content="Seleccione hacia donde estan orientadas las ventanas principales del ambiente. Use una brujula o app movil para determinar la orientacion exacta.">
-                    <span className="ml-2 text-cyan-600 cursor-help hover:text-cyan-700 transition-colors">
-                      ⓘ
-                    </span>
-                  </Tooltip>
+                  <span
+                    className="ml-2 text-cyan-600 cursor-pointer hover:text-cyan-700 transition-colors"
+                    onClick={() => alert('PRUEBA DIRECTA: Seleccione hacia donde estan orientadas las ventanas principales del ambiente. Use una brujula o app movil para determinar la orientacion exacta.')}
+                  >
+                    ⓘ
+                  </span>
                 </label>
                 <select
                   value={datos.ventanaOrientacion}
@@ -333,11 +334,12 @@ const BalanceTermico = () => {
               <div>
                 <label className="block text-sm font-semibold mb-2 text-gray-700">
                   Area de ventanas (m²):
-                  <Tooltip content="Mida el ancho y alto de cada ventana en metros, multiplique para obtener el area (ej: 1.5m x 1.2m = 1.8m²). Si hay varias ventanas, sume todas las areas.">
-                    <span className="ml-2 text-cyan-600 cursor-help hover:text-cyan-700 transition-colors">
-                      ⓘ
-                    </span>
-                  </Tooltip>
+                  <span
+                    className="ml-2 text-cyan-600 cursor-pointer hover:text-cyan-700 transition-colors"
+                    onClick={() => alert('PRUEBA DIRECTA: Mida el ancho y alto de cada ventana en metros, multiplique para obtener el area (ej: 1.5m x 1.2m = 1.8m²). Si hay varias ventanas, sume todas las areas.')}
+                  >
+                    ⓘ
+                  </span>
                 </label>
                 <input
                   type="text"
