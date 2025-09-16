@@ -93,110 +93,77 @@ export default function Contacto() {
         </div>
       </div>
 
-      {/* Encabezado principal */}
-      <header className="bg-white shadow-md">
-        {/* Layout para desktop */}
-        <div className="hidden md:block">
-          <div className="max-w-7xl mx-auto w-full grid grid-cols-3 items-center py-4 px-6">
-            <div className="flex justify-start">
-              <Link href="/">
+      {/* Header simplificado para contacto */}
+      <header className="bg-white shadow-lg border-b-4 border-cyan-600">
+        {/* Header principal simplificado */}
+        <div className="py-4 px-4">
+          <div className="max-w-7xl mx-auto">
+            {/* Fila superior: Logo y botones */}
+            <div className="flex items-center justify-between mb-3">
+              <Link href="/" className="flex-shrink-0">
                 <Image
                   src="/logo-kryofix.png"
                   alt="Logo KryoFix"
-                  width={160}
-                  height={64}
-                  className="h-16 w-auto object-contain"
+                  width={140}
+                  height={56}
+                  className="h-14 w-auto object-contain hover:opacity-80 transition-opacity"
                   priority
                 />
               </Link>
+
+              {/* Botones compactos */}
+              <div className="flex gap-2">
+                <Link
+                  href="/calculadora"
+                  className="flex items-center gap-1 bg-blue-600 text-white px-3 py-1.5 rounded-md text-xs font-semibold hover:bg-blue-700 transition-colors"
+                  title="Calculadora de Balance Térmico"
+                >
+                  <svg
+                    className="w-3 h-3"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path fillRule="evenodd" d="M6 2a2 2 0 00-2 2v12a2 2 0 002 2h8a2 2 0 002-2V4a2 2 0 00-2-2H6zm1 2a1 1 0 000 2h6a1 1 0 100-2H7zm6 7a1 1 0 011 1v3a1 1 0 11-2 0v-3a1 1 0 011-1zm-3 3a1 1 0 100 2h.01a1 1 0 100-2H10zm-4 1a1 1 0 011-1h.01a1 1 0 110 2H7a1 1 0 01-1-1zm1-4a1 1 0 100 2h.01a1 1 0 100-2H7zm2 0a1 1 0 100 2h.01a1 1 0 100-2H9zm2 0a1 1 0 100 2h.01a1 1 0 100-2H11zm0-2a1 1 0 100 2h.01a1 1 0 100-2H11zm-2 0a1 1 0 100 2h.01a1 1 0 100-2H9zm-2 0a1 1 0 100 2h.01a1 1 0 100-2H7z" clipRule="evenodd"></path>
+                  </svg>
+                  <span className="hidden sm:inline">Calculadora</span>
+                  <span className="sm:hidden">Calc</span>
+                </Link>
+                <a
+                  href="https://wa.me/5491151353079?text=¡Hola!%20Me%20interesa%20conocer%20más%20sobre%20los%20servicios%20de%20KryoFix.%20¿Podrían%20ayudarme?"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-1 bg-green-600 text-white px-3 py-1.5 rounded-md text-xs font-semibold hover:bg-green-700 transition-colors"
+                  onMouseDown={() => trackWhatsAppClick('header_mobile')}
+                >
+                  <Image
+                    src="https://img.icons8.com/ios-filled/12/ffffff/whatsapp.png"
+                    alt="WhatsApp"
+                    width={12}
+                    height={12}
+                    className="h-3 w-3 object-contain"
+                  />
+                  <span className="hidden sm:inline">WhatsApp</span>
+                </a>
+              </div>
             </div>
-            <div className="flex justify-center">
-              <a
-              href="https://wa.me/5491151353079?text=¡Hola!%20Me%20interesa%20conocer%20más%20sobre%20los%20servicios%20de%20KryoFix.%20¿Podrían%20ayudarme?"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-2 text-green-600 text-lg font-semibold hover:underline"
-              onMouseDown={() => trackWhatsAppClick('header_desktop')}
-            >
-                <Image
-                  src="https://img.icons8.com/ios-filled/24/25D366/whatsapp.png"
-                  alt="WhatsApp"
-                  width={24}
-                  height={24}
-                  className="h-6 w-6 object-contain"
-                />
-                <span>11 5135-3079</span>
-              </a>
-            </div>
-            <div className="flex justify-end">
-              <Link href="/contacto" className="text-cyan-600 font-semibold hover:underline solicitar-servicio">SOLICITAR SERVICIO</Link>
+
+            {/* Fila inferior: Título centrado */}
+            <div className="text-center border-t border-gray-200 pt-3">
+              <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-800 mb-1">
+                Contáctanos
+              </h1>
+              <p className="text-xs sm:text-sm text-gray-600">
+                Solicita tu servicio técnico profesional
+              </p>
             </div>
           </div>
         </div>
-
-        {/* Layout para móvil */}
-        <div className="md:hidden py-4 px-6">
-          <div className="flex justify-between items-center mb-3">
-            <Link href="/">
-              <Image
-                src="/logo-kryofix.png"
-                alt="Logo KryoFix"
-                width={120}
-                height={48}
-                className="h-12 w-auto object-contain"
-                priority
-              />
-            </Link>
-            <a
-              href="https://wa.me/5491151353079?text=¡Hola!%20Me%20interesa%20conocer%20más%20sobre%20los%20servicios%20de%20KryoFix.%20¿Podrían%20ayudarme?"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-2 bg-green-600 text-white px-3 py-2 rounded-full text-sm font-semibold hover:bg-green-700 transition-colors"
-              onMouseDown={() => trackWhatsAppClick('header_mobile')}
-            >
-              <Image
-                src="https://img.icons8.com/ios-filled/16/ffffff/whatsapp.png"
-                alt="WhatsApp"
-                width={16}
-                height={16}
-                className="h-4 w-4 object-contain"
-              />
-              <span>WhatsApp</span>
-            </a>
-          </div>
-          <div className="flex justify-center">
-            <Link href="/contacto" className="text-cyan-600 font-semibold hover:underline text-sm solicitar-servicio">SOLICITAR SERVICIO</Link>
-          </div>
-        </div>
-
-        <nav className="bg-gray-700 text-white py-2">
-          <div className="max-w-7xl mx-auto flex justify-center gap-6 text-sm font-semibold uppercase items-center">
-            <Link href="/" className="mx-2 hover:underline">Inicio</Link>
-            <Link href="/nosotros" className="mx-2 hover:underline">Nosotros</Link>
-            <Link href="/servicios" className="mx-2 hover:underline">Servicios</Link>
-            <Link
-              href="/calculadora"
-              className="mx-2 hover:bg-blue-700 bg-blue-600 px-3 py-2 rounded transition-colors flex items-center gap-1"
-              title="Calculadora de Balance Térmico"
-            >
-              <svg
-                className="w-4 h-4"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path fillRule="evenodd" d="M6 2a2 2 0 00-2 2v12a2 2 0 002 2h8a2 2 0 002-2V4a2 2 0 00-2-2H6zm1 2a1 1 0 000 2h6a1 1 0 100-2H7zm6 7a1 1 0 011 1v3a1 1 0 11-2 0v-3a1 1 0 011-1zm-3 3a1 1 0 100 2h.01a1 1 0 100-2H10zm-4 1a1 1 0 011-1h.01a1 1 0 110 2H7a1 1 0 01-1-1zm1-4a1 1 0 100 2h.01a1 1 0 100-2H7zm2 0a1 1 0 100 2h.01a1 1 0 100-2H9zm2 0a1 1 0 100 2h.01a1 1 0 100-2H11zm0-2a1 1 0 100 2h.01a1 1 0 100-2H11zm-2 0a1 1 0 100 2h.01a1 1 0 100-2H9zm-2 0a1 1 0 100 2h.01a1 1 0 100-2H7z" clipRule="evenodd"></path>
-              </svg>
-              <span className="hidden sm:inline">Calculadora</span>
-            </Link>
-          </div>
-        </nav>
       </header>
 
       {/* Contenido principal */}
-      <main className="bg-gray-100 py-6 px-6 md:px-24 min-h-screen">
+      <main className="bg-gray-50 py-8 px-4 min-h-screen">
         <div className="max-w-6xl mx-auto">
-          <h1 className="text-4xl font-bold text-center mb-6 text-gray-900">Contáctanos</h1>
 
           <div className="grid md:grid-cols-3 gap-8">
             {/* Información de contacto - Aparece segundo en móvil, primero en desktop */}
