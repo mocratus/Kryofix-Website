@@ -42,6 +42,13 @@ export default function Tooltip({
     e.preventDefault();
     e.stopPropagation();
     console.log('Tooltip clicked!', { isMobile, isVisible }); // Debug
+
+    // Prueba simple para móvil
+    if (isMobile) {
+      alert(`INFO: ${content}`);
+      return;
+    }
+
     setIsVisible(!isVisible);
   };
 
