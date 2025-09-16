@@ -316,7 +316,7 @@ const BalanceTermico = () => {
         {/* Sección 1: Ventanas - Radiación Solar */}
         <div className="bg-white p-4 sm:p-6 rounded-lg shadow-md border border-gray-200">
           <h3 className="font-bold text-lg mb-4 text-gray-800 border-b border-gray-200 pb-2">
-            1. Ventanas - Radiacion Solar ✅ ACTUALIZADO
+            1. Ventanas - Radiacion Solar
           </h3>
             <div className="space-y-4">
               <div>
