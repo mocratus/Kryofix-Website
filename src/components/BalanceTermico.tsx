@@ -1,7 +1,6 @@
 'use client';
 
 import { useState } from 'react';
-import Tooltip from './Tooltip';
 
 interface CalculoData {
   ventanaOrientacion: string;
@@ -44,7 +43,22 @@ const BalanceTermico = () => {
     factorRegion: 1.0
   });
 
+  // Estado para el modal de ayuda
+  const [modalAyuda, setModalAyuda] = useState<{visible: boolean, contenido: string}>({
+    visible: false,
+    contenido: ''
+  });
+
   const [inputValues, setInputValues] = useState<{[key: string]: string}>({});
+
+  // Función para mostrar ayuda
+  const mostrarAyuda = (contenido: string) => {
+    setModalAyuda({ visible: true, contenido });
+  };
+
+  const cerrarAyuda = () => {
+    setModalAyuda({ visible: false, contenido: '' });
+  };
 
   const valoresIniciales: CalculoData = {
     ventanaOrientacion: 'sur',
@@ -310,7 +324,7 @@ const BalanceTermico = () => {
                   Orientacion:
                   <span
                     className="ml-2 text-cyan-600 cursor-pointer hover:text-cyan-700 transition-colors"
-                    onClick={() => alert('PRUEBA DIRECTA: Seleccione hacia donde estan orientadas las ventanas principales del ambiente. Use una brujula o app movil para determinar la orientacion exacta.')}
+                    onClick={() => mostrarAyuda('Seleccione hacia donde estan orientadas las ventanas principales del ambiente. Use una brujula o app movil para determinar la orientacion exacta.')}
                   >
                     ⓘ
                   </span>
@@ -336,7 +350,7 @@ const BalanceTermico = () => {
                   Area de ventanas (m²):
                   <span
                     className="ml-2 text-cyan-600 cursor-pointer hover:text-cyan-700 transition-colors"
-                    onClick={() => alert('PRUEBA DIRECTA: Mida el ancho y alto de cada ventana en metros, multiplique para obtener el area (ej: 1.5m x 1.2m = 1.8m²). Si hay varias ventanas, sume todas las areas.')}
+                    onClick={() => mostrarAyuda('Mida el ancho y alto de cada ventana en metros, multiplique para obtener el area (ej: 1.5m x 1.2m = 1.8m²). Si hay varias ventanas, sume todas las areas.')}
                   >
                     ⓘ
                   </span>
@@ -829,6 +843,38 @@ const BalanceTermico = () => {
                 </button>
               </div>
             </div>
+          </div>
+        </div>
+      )}
+
+      {/* Modal de Ayuda */}
+      {modalAyuda.visible && (
+        <div
+          className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4"
+          onClick={cerrarAyuda}
+        >
+          <div
+            className="bg-white rounded-lg p-6 max-w-md w-full mx-4 shadow-xl"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="flex justify-between items-start mb-4">
+              <h3 className="text-lg font-semibold text-gray-800">Información</h3>
+              <button
+                onClick={cerrarAyuda}
+                className="text-gray-400 hover:text-gray-600 text-xl font-bold"
+              >
+                ×
+              </button>
+            </div>
+            <p className="text-gray-700 leading-relaxed mb-4">
+              {modalAyuda.contenido}
+            </p>
+            <button
+              onClick={cerrarAyuda}
+              className="w-full bg-cyan-600 text-white py-2 px-4 rounded-lg hover:bg-cyan-700 transition-colors"
+            >
+              Entendido
+            </button>
           </div>
         </div>
       )}
