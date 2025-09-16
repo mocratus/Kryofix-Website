@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Tooltip from './Tooltip';
 
 interface CalculoData {
   ventanaOrientacion: string;
@@ -307,12 +308,11 @@ const BalanceTermico = () => {
               <div>
                 <label className="block text-sm font-semibold mb-2 text-gray-700">
                   Orientacion:
-                  <span
-                    className="ml-2 text-cyan-600 cursor-help hover:text-cyan-700 transition-colors"
-                    title="Seleccione hacia donde estan orientadas las ventanas principales del ambiente. Use una brujula o app movil para determinar la orientacion exacta."
-                  >
-                    ⓘ
-                  </span>
+                  <Tooltip content="Seleccione hacia donde estan orientadas las ventanas principales del ambiente. Use una brujula o app movil para determinar la orientacion exacta.">
+                    <span className="ml-2 text-cyan-600 cursor-help hover:text-cyan-700 transition-colors">
+                      ⓘ
+                    </span>
+                  </Tooltip>
                 </label>
                 <select
                   value={datos.ventanaOrientacion}
@@ -333,12 +333,11 @@ const BalanceTermico = () => {
               <div>
                 <label className="block text-sm font-semibold mb-2 text-gray-700">
                   Area de ventanas (m²):
-                  <span
-                    className="ml-2 text-cyan-600 cursor-help hover:text-cyan-700 transition-colors"
-                    title="Mida el ancho y alto de cada ventana en metros, multiplique para obtener el area (ej: 1.5m x 1.2m = 1.8m²). Si hay varias ventanas, sume todas las areas."
-                  >
-                    ⓘ
-                  </span>
+                  <Tooltip content="Mida el ancho y alto de cada ventana en metros, multiplique para obtener el area (ej: 1.5m x 1.2m = 1.8m²). Si hay varias ventanas, sume todas las areas.">
+                    <span className="ml-2 text-cyan-600 cursor-help hover:text-cyan-700 transition-colors">
+                      ⓘ
+                    </span>
+                  </Tooltip>
                 </label>
                 <input
                   type="text"
@@ -354,12 +353,11 @@ const BalanceTermico = () => {
               <div>
                 <label className="block text-sm font-semibold mb-2 text-gray-700">
                   Tipo de sombra:
-                  <span
-                    className="ml-2 text-cyan-600 cursor-help hover:text-cyan-700 transition-colors"
-                    title="Sin sombra: ventana recibe sol directo. Sombra interior: tiene cortinas, persianas o films. Sombra exterior: tiene alero, toldo o esta bajo balcon."
-                  >
-                    ⓘ
-                  </span>
+                  <Tooltip content="Sin sombra: ventana recibe sol directo. Sombra interior: tiene cortinas, persianas o films. Sombra exterior: tiene alero, toldo o esta bajo balcon.">
+                    <span className="ml-2 text-cyan-600 cursor-help hover:text-cyan-700 transition-colors">
+                      ⓘ
+                    </span>
+                  </Tooltip>
                 </label>
                 <select
                   value={datos.ventanaSombra}
