@@ -1,4 +1,4 @@
-const CACHE_NAME = 'kryofix-pwa-v2';
+const CACHE_NAME = 'kryofix-pwa-v3';
 const urlsToCache = [
   '/',
   '/calculadora',
@@ -35,50 +35,74 @@ self.addEventListener('install', (event) => {
   );
 });
 
-// Interceptar requests
+// Interceptar requests - ESTRATEGIA NETWORK FIRST
 self.addEventListener('fetch', (event) => {
   // Solo cachear requests GET
   if (event.request.method !== 'GET') return;
 
-  event.respondWith(
-    caches.match(event.request)
-      .then((response) => {
-        // Cache hit - devolver respuesta
-        if (response) {
-          console.log('SW: Sirviendo desde cache:', event.request.url);
-          return response;
-        }
+  // Para páginas HTML, usar Network First (siempre la versión más reciente)
+  if (event.request.headers.get('accept')?.includes('text/html') ||
+      event.request.url.includes('/calculadora') ||
+      event.request.url.endsWith('/')) {
 
-        // No está en cache - intentar fetch y cachear
-        console.log('SW: Fetching:', event.request.url);
-        return fetch(event.request)
-          .then((response) => {
-            // Solo cachear respuestas exitosas
-            if (!response || response.status !== 200 || response.type !== 'basic') {
-              return response;
-            }
+    event.respondWith(
+      fetch(event.request)
+        .then((response) => {
+          console.log('SW: Network First - Sirviendo desde red:', event.request.url);
 
-            // Cachear la respuesta para futuras requests
+          // Cachear la nueva versión
+          if (response && response.status === 200 && response.type === 'basic') {
             const responseToCache = response.clone();
             caches.open(CACHE_NAME)
               .then((cache) => {
                 cache.put(event.request, responseToCache);
               });
+          }
 
-            return response;
-          })
-          .catch(() => {
-            // Si falla el fetch y es la calculadora, mostrar página offline
-            if (event.request.url.includes('/calculadora')) {
-              return caches.match('/calculadora');
-            }
-            return new Response('Offline - Contenido no disponible', {
-              status: 503,
-              statusText: 'Service Unavailable'
+          return response;
+        })
+        .catch(() => {
+          // Si falla la red, usar caché como fallback
+          console.log('SW: Network falló, usando cache:', event.request.url);
+          return caches.match(event.request)
+            .then((cachedResponse) => {
+              if (cachedResponse) {
+                return cachedResponse;
+              }
+              return new Response('Offline - Contenido no disponible', {
+                status: 503,
+                statusText: 'Service Unavailable'
+              });
             });
-          });
-      })
-  );
+        })
+    );
+  } else {
+    // Para recursos estáticos (CSS, JS, imágenes), usar Cache First
+    event.respondWith(
+      caches.match(event.request)
+        .then((response) => {
+          if (response) {
+            console.log('SW: Cache First - Sirviendo desde cache:', event.request.url);
+            return response;
+          }
+
+          return fetch(event.request)
+            .then((response) => {
+              if (!response || response.status !== 200 || response.type !== 'basic') {
+                return response;
+              }
+
+              const responseToCache = response.clone();
+              caches.open(CACHE_NAME)
+                .then((cache) => {
+                  cache.put(event.request, responseToCache);
+                });
+
+              return response;
+            });
+        })
+    );
+  }
 });
 
 // Actualizar Service Worker
