@@ -40,21 +40,25 @@ export default function Tooltip({
     setIsVisible(false);
   };
 
-  const handleClick = (e: React.MouseEvent) => {
-    if (isMobile) {
-      e.preventDefault();
-      e.stopPropagation();
-      setIsVisible(!isVisible);
-    }
+  const handleClick = (e: React.MouseEvent | React.TouchEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setIsVisible(!isVisible);
   };
 
-  // Cerrar tooltip al hacer click fuera en móvil
-  useEffect(() => {
-    if (!isMobile || !isVisible) return;
+  const handleTouchStart = (e: React.TouchEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setIsVisible(!isVisible);
+  };
 
-    const handleClickOutside = (event: MouseEvent) => {
+  // Cerrar tooltip al hacer click fuera
+  useEffect(() => {
+    if (!isVisible) return;
+
+    const handleClickOutside = (event: MouseEvent | TouchEvent) => {
       if (
-        tooltipRef.current && 
+        tooltipRef.current &&
         triggerRef.current &&
         !tooltipRef.current.contains(event.target as Node) &&
         !triggerRef.current.contains(event.target as Node)
@@ -64,12 +68,24 @@ export default function Tooltip({
     };
 
     document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
-  }, [isVisible, isMobile]);
+    document.addEventListener('touchstart', handleClickOutside);
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener('touchstart', handleClickOutside);
+    };
+  }, [isVisible]);
 
   const getPositionClasses = () => {
-    const baseClasses = 'absolute z-50 px-3 py-2 text-sm text-white bg-gray-900 rounded-lg shadow-lg max-w-xs';
-    
+    const baseClasses = isMobile
+      ? 'absolute z-50 px-4 py-3 text-sm text-white bg-gray-900 rounded-lg shadow-xl max-w-sm border border-gray-700'
+      : 'absolute z-50 px-3 py-2 text-sm text-white bg-gray-900 rounded-lg shadow-lg max-w-xs';
+
+    // En móvil, siempre mostrar arriba para mejor visibilidad
+    if (isMobile) {
+      return `${baseClasses} bottom-full left-1/2 transform -translate-x-1/2 mb-3`;
+    }
+
     switch (position) {
       case 'top':
         return `${baseClasses} bottom-full left-1/2 transform -translate-x-1/2 mb-2`;
@@ -86,7 +102,12 @@ export default function Tooltip({
 
   const getArrowClasses = () => {
     const baseArrow = 'absolute w-2 h-2 bg-gray-900 transform rotate-45';
-    
+
+    // En móvil, siempre flecha hacia abajo (tooltip arriba)
+    if (isMobile) {
+      return `${baseArrow} top-full left-1/2 transform -translate-x-1/2 -translate-y-1/2`;
+    }
+
     switch (position) {
       case 'top':
         return `${baseArrow} top-full left-1/2 transform -translate-x-1/2 -translate-y-1/2`;
@@ -108,7 +129,13 @@ export default function Tooltip({
         onMouseEnter={!isMobile ? showTooltip : undefined}
         onMouseLeave={!isMobile ? hideTooltip : undefined}
         onClick={handleClick}
-        className="cursor-help"
+        onTouchStart={handleTouchStart}
+        className="cursor-help touch-manipulation"
+        style={{
+          WebkitTouchCallout: 'none',
+          WebkitUserSelect: 'none',
+          userSelect: 'none'
+        }}
       >
         {children}
       </div>
