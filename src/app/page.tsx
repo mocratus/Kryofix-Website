@@ -149,8 +149,6 @@ export default function Home() {
         </div>
         <nav className="bg-gray-700 text-white py-2">
           <div className="max-w-7xl mx-auto flex justify-center gap-6 text-sm font-semibold uppercase items-center">
-            <Link href="/nosotros" className="mx-2 hover:underline">Nosotros</Link>
-            <Link href="/servicios" className="mx-2 hover:underline">Servicios</Link>
             <Link href="/contacto" className="mx-2 hover:underline">Contacto</Link>
             <Link
               href="/calculadora"
@@ -284,8 +282,7 @@ export default function Home() {
         </div>
         <div className="mt-10 border-t border-gray-700 pt-4 text-sm text-center">
           <Link href="/" className="mx-2 hover:underline">Inicio</Link> |
-          <Link href="/servicios" className="mx-2 hover:underline">Servicios</Link> |
-          <Link href="/nosotros" className="mx-2 hover:underline">Nosotros</Link> |
+          <Link href="/calculadora" className="mx-2 hover:underline">Calculadora</Link> |
           <Link href="/contacto" className="mx-2 hover:underline">Contacto</Link>
         </div>
       </footer>

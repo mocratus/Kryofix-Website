@@ -113,12 +113,12 @@ export default function CalculadoraPage() {
               >
                 Solicitar Presupuesto
               </a>
-              <a
-                href="/servicios"
+              <Link
+                href="/contacto"
                 className="bg-white text-blue-600 border border-blue-600 px-6 py-3 rounded-md hover:bg-blue-50 transition-colors font-semibold text-center"
               >
-                Ver Nuestros Servicios
-              </a>
+                Solicitar Servicio
+              </Link>
             </div>
           </div>
 
